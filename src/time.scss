@@ -1,0 +1,21 @@
+.day {
+  width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 50px;
+  .hour {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 50px;
+    border: 1px solid red;
+
+    button {
+      background: none;
+      border: none;
+      outline: none;
+    }
+  }
+  .min {
+    margin-left: 50px;
+  }
+}
