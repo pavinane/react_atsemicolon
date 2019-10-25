@@ -20,8 +20,9 @@ class MainButton extends React.Component {
     name: "",
     email: "",
     mobile: "",
-    education: "",
-    period: ""
+    designation: "",
+    period: "",
+    submit: ""
   };
   click = show => {
     this.setState({ text: show, options: true });
@@ -40,6 +41,7 @@ class MainButton extends React.Component {
     console.log(this.state);
   };
   click3 = show => this.setState({ period: show });
+  click4 = display => this.setState({ submit: display });
   render() {
     const {
       text,
@@ -47,8 +49,9 @@ class MainButton extends React.Component {
       name,
       email,
       number,
-      education,
-      period
+      designation,
+      period,
+      submit
     } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
@@ -56,7 +59,14 @@ class MainButton extends React.Component {
           <div className="option">
             {options ? (
               <div className="main-btn">
-                <button type="button" onClick={this.click2}>
+                <button
+                  type="button"
+                  onClick={this.click2}
+                  style={{
+                    background: "text" ? "white" : "#2D80B9",
+                    color: "text" ? "#2D80B9" : "white"
+                  }}
+                >
                   {text}
                 </button>
               </div>
@@ -123,15 +133,16 @@ class MainButton extends React.Component {
               placeholder="email"
             />
             <input
-              name="number"
+              name="tel"
               type="text"
               value={number}
               onChange={this.handleChange}
               placeholder="mobile number"
             />
             <input
+              name="designation"
               type="text"
-              value={education}
+              value={designation}
               onChange={this.handleChange}
               placeholder="educations"
             />
@@ -171,7 +182,14 @@ class MainButton extends React.Component {
           </div>
         </div>
         <div className="sub">
-          <button tyoe="button" onClick={this.handleSubmit}>
+          <button
+            type="button"
+            onClick={() => this.click4("schedule")}
+            style={{
+              background: submit === "schedule" ? "white" : "#2D80B9",
+              color: submit === "schedule" ? "#2D80B9" : "white"
+            }}
+          >
             schedule
           </button>
         </div>
